@@ -12,7 +12,10 @@ const SelectField: React.FC<SelectFieldProps> = ({diceOptions, onOptionChange, s
                     <select
                         key={`${diceOption.id}-${index}`}
                         className={Style.select}
-                        onChange={(e) => onOptionChange(diceOption.id, Number(e.target.value))}
+                        onChange={(e) => {
+                            const value = e.target.value === "" ? "" : Number(e.target.value);
+                            onOptionChange(diceOption.id, value);
+                        }}
                         value={selectedOptions[diceOption.id][0] || ""}
                     >
                         {diceOption.values.map((value: number | "", index: number) => {
