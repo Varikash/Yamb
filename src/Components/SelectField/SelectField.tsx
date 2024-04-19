@@ -16,12 +16,12 @@ const SelectField: React.FC<SelectFieldProps> = ({diceOptions, onOptionChange, s
                             const value = e.target.value === "" ? "" : Number(e.target.value);
                             onOptionChange(diceOption.id, value);
                         }}
-                        value={selectedOptions[diceOption.id][0] || ""}
+                        value={selectedOptions[diceOption.id][0] !== undefined && selectedOptions[diceOption.id][0] !== null ? selectedOptions[diceOption.id][0] : ""}
                     >
                         {diceOption.values.map((value: number | "", index: number) => {
                             return (
                                 <option key={index} value={value}>
-                                    {value === 0 ? "❌": value}
+                                    {value === 0 ? "\u{274C}": value}
                                 </option>
                             )
                         })}
@@ -31,5 +31,6 @@ const SelectField: React.FC<SelectFieldProps> = ({diceOptions, onOptionChange, s
         </div>
     )
 }
+
 
 export { SelectField };
