@@ -13,3 +13,7 @@ export type SelectFieldProps = {
 
 export type StateType = Record<string, (number | '')[]>;
 export type ActionType = { type: 'clear' | 'replace', id?: string, value?: number | '' };
+
+export type TotalSpanProps = {
+    total: number | null;
+}

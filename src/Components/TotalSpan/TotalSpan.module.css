@@ -1,0 +1,10 @@
+.totalSpan {
+    width: 2.5rem;
+    height: 2.4rem;
+    border: 2px solid #e056fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffbe76;
+    border-radius: 0.5rem; /* rounded-lg in Tailwind */
+}

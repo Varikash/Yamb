@@ -1,9 +1,8 @@
-// В файле src/reducers/DownColumn.ts
 import {diceOptions} from "../utils/options.ts";
 import {StateType, ActionType} from "../Types/Types.ts";
 import {loadFromLocalStorage, saveToLocalStorage} from "../utils/functions.ts";
 
-const persistedState = loadFromLocalStorage('downColumn');
+const persistedState = loadFromLocalStorage('upColumn');
 export const initialState: StateType = persistedState? persistedState : diceOptions.reduce((acc: StateType, diceOption) => {
     acc[diceOption.id] = [];
     return acc;
@@ -29,6 +28,6 @@ export const optionReducer = (state: StateType = initialState, action: ActionTyp
             return state;
     }
 
-    saveToLocalStorage(newState, 'downColumn');
+    saveToLocalStorage(newState, 'upColumn');
     return newState;
 }

@@ -1,18 +1,18 @@
 import React from "react";
 import {ActionType, StateType} from "../Types/Types.ts";
 
-export function saveToLocalStorage(state: StateType):void {
+export function saveToLocalStorage(state: StateType, key: string):void {
     try {
         const serializedState = JSON.stringify(state);
-        localStorage.setItem('state', serializedState);
+        localStorage.setItem(key, serializedState);
     } catch (e) {
         console.warn(e);
     }
 }
 
-export function loadFromLocalStorage() {
+export function loadFromLocalStorage(key: string) {
     try {
-        const serializedState: string | null = localStorage.getItem('state');
+        const serializedState: string | null = localStorage.getItem(key);
         if (serializedState === null) return undefined;
         return JSON.parse(serializedState);
     } catch (e) {
